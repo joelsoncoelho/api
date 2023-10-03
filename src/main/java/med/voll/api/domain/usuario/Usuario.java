@@ -42,7 +42,7 @@ public class Usuario implements UserDetails{
 
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         for (Role role : getRoles()) {
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
+            authorities.add(new SimpleGrantedAuthority(role.getName().trim()));
         }
         return authorities;
     }
