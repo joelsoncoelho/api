@@ -32,8 +32,8 @@ public class SecurityConfigurations {
                 .authorizeHttpRequests(req -> {
                     // Não cheque essas requisições
                     req.requestMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll();
-                    req.requestMatchers(HttpMethod.DELETE,  "/medicos").hasAuthority("ROLE_ADMIN");
-                    req.requestMatchers(HttpMethod.DELETE,  "/pacientes").hasAuthority("ROLE_ADMIN");
+                    req.requestMatchers(HttpMethod.DELETE,  "/medicos").hasRole("ADMIN");
+                    req.requestMatchers(HttpMethod.DELETE,  "/pacientes").hasRole("ADMIN");
                     // Qualquer outra requisição deve ser checada
                    req.anyRequest().authenticated();
                 })
