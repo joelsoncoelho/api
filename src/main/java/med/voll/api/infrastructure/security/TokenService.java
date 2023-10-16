@@ -29,7 +29,7 @@ public class TokenService {
         //System.out.println(secret);
 
         try {
-            var algoritmo = Algorithm.HMAC256("12345678");
+            var algoritmo = Algorithm.HMAC256(secret);
             return JWT.create()
                     .withIssuer(ISSUER)
                     .withSubject(usuario.getLogin())
