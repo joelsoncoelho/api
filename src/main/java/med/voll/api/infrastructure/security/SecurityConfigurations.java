@@ -32,6 +32,7 @@ public class SecurityConfigurations {
                 .authorizeHttpRequests(req -> {
                     // Não cheque essas requisições
                     req.requestMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll();
+                    req.requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll();
                     req.requestMatchers(HttpMethod.DELETE,  "/medicos").hasRole("ADMIN");
                     req.requestMatchers(HttpMethod.DELETE,  "/pacientes").hasRole("ADMIN");
                     // Qualquer outra requisição deve ser checada
